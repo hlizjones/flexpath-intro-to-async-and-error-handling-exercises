@@ -1,0 +1,23 @@
+{
+  "name": "flexpath-module-1-through-6-exercises",
+  "version": "1.0.0",
+  "description": "Exercises for FlexPath module 1 through 6",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git/issues"
+  },
+  "homepage": "https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
