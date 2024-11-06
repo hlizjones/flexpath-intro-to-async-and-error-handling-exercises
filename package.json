@@ -1,21 +1,21 @@
 {
-  "name": "flexpath-module-1-through-6-exercises",
+  "name": "flextech-intro-to-async-and-error-handling-exercises",
   "version": "1.0.0",
-  "description": "Exercises for FlexPath module 1 through 6",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git"
+    "url": "git+https://github.com/LaunchCodeEducation/flextech-intro-to-async-and-error-handling-exercises.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git/issues"
+    "url": "https://github.com/LaunchCodeEducation/flextech-intro-to-async-and-error-handling-exercises.git/issues"
   },
-  "homepage": "https://github.com/LaunchCodeEducation/flextech-dev-module-1-through-6-exercises.git#readme",
+  "homepage": "https://github.com/LaunchCodeEducation/flextech-intro-to-async-and-error-handling-exercises.git#readme",
   "devDependencies": {
   },
   "dependencies": {
