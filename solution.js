@@ -22,7 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  exercise_10();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -30,12 +30,18 @@ function exercise_01() {
   /* 
    
     Exercise 1: Understanding Synchronous vs. Asynchronous Operations
-Problem:
+    
+    Problem:
 
-Explain the difference between synchronous and asynchronous operations in JavaScript with examples. Write a synchronous function that logs numbers from 1 to 5, and an asynchronous function that does the same but with a delay of 1 second between each number.
+    Explain the difference between synchronous and asynchronous operations 
+    in JavaScript with examples. 
+    Write a synchronous function that logs numbers from 1 to 5, and 
+    an asynchronous function that does the same but 
+    with a delay of 1 second between each number.
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   // Synchronous function
   function logNumbersSync() {
     for (let i = 1; i <= 5; i++) {
@@ -59,11 +65,15 @@ Explain the difference between synchronous and asynchronous operations in JavaSc
   // Outputs: 1 2 3 4 5 with 1-second intervals
 
   /*
-Explanation:
+    Answer Explanation:
 
-Synchronous operations execute code sequentially; each operation must complete before the next one starts.
-Asynchronous operations allow the program to continue executing without waiting for an operation to finish.
-In the asynchronous function, setTimeout is used to introduce a delay, simulating asynchronous behavior.
+    Synchronous operations execute code sequentially; 
+      Each operation must complete before the next one starts.
+
+    Asynchronous operations allow the program to continue executing 
+      without waiting for an operation to finish.
+      In the asynchronous function, setTimeout is used 
+      to introduce a delay, simulating asynchronous behavior.
 */
 
   // CODE IN THE OPEN LINES ABOVE
@@ -73,11 +83,16 @@ function exercise_02() {
   /* 
    
     Exercise 2: Use Cases for Asynchronous Logic
-Problem:
+    
+    Problem:
 
-Write an asynchronous function fetchData that simulates fetching data from an API using setTimeout. The function should accept a callback that processes the data once it's "fetched". Simulate a delay of 2 seconds.
+    Write an asynchronous function 'fetchData' that simulates fetching 
+    data from an API using setTimeout. 
+    The function should accept a callback that processes the data 
+    once it's "fetched". Simulate a delay of 2 seconds.
   */
   // CODE IN THE OPEN LINES BELOW
+
   function fetchData(callback) {
     console.log("Fetching data...");
 
@@ -95,22 +110,28 @@ Write an asynchronous function fetchData that simulates fetching data from an AP
   // Fetching data...
   // (after 2 seconds)
   // Data received: { id: 1, message: 'Hello, world!' }
-  /*
-Explanation:
 
-The fetchData function simulates an API call with a delay.
-A callback function is passed to process the data once it's available.
-  */
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    The fetchData function simulates an API call with a delay.
+    A callback function is passed to process the data once it's available.
+  */
 }
 
 function exercise_03() {
   /* 
    
     Exercise 3: Working with Callbacks
-Problem:
+    
+    Problem:
 
-Write a function readFile that simulates reading a file asynchronously. It should accept a filename and a callback function. If the filename is 'data.txt', it should return 'File content' after 1 second; otherwise, it should return an error.
+    Write a function 'readFile' that simulates reading a file asynchronously. 
+    It should accept a filename and a callback function. 
+    If the filename is 'data.txt', it should return 'File content' after 1 second.
+    Otherwise, it should return an error.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -144,23 +165,25 @@ Write a function readFile that simulates reading a file asynchronously. It shoul
 
   // Outputs after 1 second: File not found
 
-  /*
-Explanation:
-
-The readFile function uses a callback to handle both success and error cases.
-Error-first callbacks are a common pattern in Node.js and JavaScript.
-  */
-
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    The readFile function uses a callback to handle both success and error cases.
+    Error-first callbacks are a common pattern in Node.js and JavaScript.
+  */
 }
 
 function exercise_04() {
   /* 
    
-   Exercise 4: Understanding Callback Hell
-Problem:
+    Exercise 4: Understanding Callback Hell
+    Problem:
 
-Demonstrate "callback hell" by writing nested callbacks to perform three asynchronous tasks sequentially: task1, task2, and task3, each taking 1 second to complete.
+    Demonstrate "callback hell" by writing nested callbacks to perform 
+    three asynchronous tasks sequentially: 
+    task1, task2, and task3, each taking 1 second to complete.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -202,20 +225,23 @@ Demonstrate "callback hell" by writing nested callbacks to perform three asynchr
 
   // CODE IN THE OPEN LINES ABOVE
   /*
-Explanation:
+    Answer Explanation:
 
-Nesting callbacks leads to code that's hard to read and maintain, known as "callback hell" or the "pyramid of doom".
-Each task waits for the previous one to complete before starting.
+    Nesting callbacks leads to code that's hard to read and 
+    maintain, known as "callback hell" or the "pyramid of doom".
+    Each task waits for the previous one to complete before starting.
   */
 }
 
 function exercise_05() {
   /* 
    
-   Exercise 5: Creating and Using Promises
-Problem:
+    Exercise 5: Creating and Using Promises
+    
+    Problem:
 
-Convert the readFile function from Exercise 3 into a function that returns a Promise instead of using callbacks.
+    Convert the 'readFile' function from Exercise 3 into a function 
+    that returns a Promise instead of using callbacks.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -253,23 +279,24 @@ Convert the readFile function from Exercise 3 into a function that returns a Pro
 
   // CODE IN THE OPEN LINES ABOVE
   /*
-Explanation:
+    Answer Explanation:
 
-Promises provide a cleaner way to handle asynchronous operations compared to callbacks.
-resolve and reject are used to handle success and error cases.
+    Promises provide a cleaner way to handle asynchronous operations compared to callbacks.
+    resolve and reject are used to handle success and error cases.
   */
 }
 
 function exercise_06() {
   /* 
-   
-    Exercise 6
     
     Exercise 6: Chaining Promises
-Problem:
+    
+    Problem:
 
-Create three functions task1, task2, and task3, each returning a Promise that resolves after 1 second. Chain these promises so that they execute sequentially.
-  
+    Create three functions task1, task2, and task3, 
+    each returning a Promise that resolves after 1 second. 
+    Chain these promises so that they execute sequentially.
+    
   */
   // CODE IN THE OPEN LINES BELOW
   function task1() {
@@ -312,22 +339,24 @@ Create three functions task1, task2, and task3, each returning a Promise that re
   // (after 3 seconds) Task 3 completed
   // All tasks completed
 
-  /*
-Explanation:
-
-Chaining .then() allows for sequential execution of asynchronous tasks.
-Each function returns a Promise, making them chainable.
-  */
   // CODE IN THE OPEN LINES ABOVE
+  /*
+    Answer Explanation:
+
+    Chaining .then() allows for sequential execution of asynchronous tasks.
+    Each function returns a Promise, making them chainable.
+  */
 }
 
 async function exercise_07() {
   /* 
    
     Exercise 7: Error Handling in Promise Chains
-Problem:
+    
+    Problem:
 
-Modify task2 from Exercise 6 to reject the promise with an error message 'Task 2 failed'. Handle the error in the promise chain.
+    Modify task2 from Exercise 6 to reject the promise with 
+    an error message 'Task 2 failed'. Handle the error in the promise chain.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -375,10 +404,10 @@ Modify task2 from Exercise 6 to reject the promise with an error message 'Task 2
 
   // CODE IN THE OPEN LINES ABOVE
   /*
-Explanation:
+    Answer Explanation:
 
-The reject function is used to indicate an error.
-The .catch() method handles errors in the promise chain.
+    The reject function is used to indicate an error.
+    The .catch() method handles errors in the promise chain.
   */
 }
 
@@ -386,12 +415,42 @@ async function exercise_08() {
   /* 
    
     Exercise 8: Using .then(), .catch(), and .finally()
-Problem:
+    
+    Problem:
 
-Add a .finally() block to the promise chain in Exercise 7 that logs 'Process finished' regardless of success or failure.
+    Copy your code from Exercise 7 and paste it below.
+    Add a .finally() block to the promise chain from Exercise 7 that 
+    logs 'Process finished' regardless of success or failure.
   
   */
   // CODE IN THE OPEN LINES BELOW
+  function task1() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 1 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  function task2() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("Task 2 failed");
+        reject(new Error("Task 2 failed"));
+      }, 1000);
+    });
+  }
+
+  function task3() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 3 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
   task1()
     .then(task2)
     .then(task3)
@@ -410,25 +469,56 @@ Add a .finally() block to the promise chain in Exercise 7 that logs 'Process fin
   // (after 2 seconds) Task 2 failed
   // Error: Task 2 failed
   // Process finished
-  /*
-Explanation:
 
-.finally() is executed after the promise is settled, regardless of the outcome.
-Useful for cleanup operations or final logging.
-*/
   // CODE IN THE OPEN LINES ABOVE
+  /*
+    Answer Explanation:
+
+    .finally() is executed after the promise is settled, regardless of the outcome.
+    Useful for cleanup operations or final logging.
+  */
 }
 
-function exercise_09() {
+async function exercise_09() {
   /* 
    
     Exercise 9: Simplifying Asynchronous Code with Async/Await
-Problem:
 
-Rewrite the promise chain from Exercise 6 using async/await syntax.
+    Problem:
+
+    Copy the function definition code for task1, task2, and task3 from 
+      Exercise 6 and paste it below.
+    Rewrite the promise chain from Exercise 6 using async/await syntax.
   
   */
   // CODE IN THE OPEN LINES BELOW
+  function task1() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 1 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  function task2() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 2 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  function task3() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 3 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
   async function runTasks() {
     try {
       await task1();
@@ -447,25 +537,60 @@ Rewrite the promise chain from Exercise 6 using async/await syntax.
   // (after 2 seconds) Task 2 completed
   // (after 3 seconds) Task 3 completed
   // All tasks completed
-  /*
-Explanation:
 
-The async function allows the use of await to pause execution until the promise resolves.
-Error handling is done using try-catch.
-  */
   // CODE IN THE OPEN LINES ABOVE
+  /*
+    Answer Explanation:
+
+    The async function allows the use of await to pause execution 
+      until the promise resolves.
+    Error handling is done using try-catch.
+  */
 }
 
-function exercise_10() {
+async function exercise_10() {
   /* 
    
     Exercise 10: Error Handling with Async/Await
-Problem:
+    
+    Problem:
 
-Use the modified task2 from Exercise 7 (which rejects) and handle the error using try-catch in an async function.
+    Copy the code from Exercise 9 and paste it below.
+    But, instead of that task2 function, use the modified task2 from Exercise 7 
+    (which rejects) and handle the error in your async/await promise chain.
+    
+    Add a `finally` block to the try-catch block that 
+    logs 'Process finished' regardless of success or failure.
   
   */
   // CODE IN THE OPEN LINES BELOW
+  function task1() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 1 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  function task2() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("Task 2 failed");
+        reject(new Error("Task 2 failed"));
+      }, 1000);
+    });
+  }
+
+  function task3() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Task 3 completed");
+        resolve();
+      }, 1000);
+    });
+  }
+
   async function runTasks() {
     try {
       await task1();
@@ -489,10 +614,10 @@ Use the modified task2 from Exercise 7 (which rejects) and handle the error usin
 
   // CODE IN THE OPEN LINES ABOVE
   /*
-Explanation:
+    Answer Explanation:
 
-Errors thrown by await are caught in the catch block.
-finally can be used similarly to .finally() in promises.
+    Errors thrown by await are caught in the catch block.
+    `finally` can be used similarly to .finally() in promises.
   */
 }
 
