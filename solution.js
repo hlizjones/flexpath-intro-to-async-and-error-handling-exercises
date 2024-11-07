@@ -1,6 +1,7 @@
 import { fileURLToPath } from "url";
 import { EventEmitter } from "events";
 import fs from "fs";
+const fsPromises = fs.promises;
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   /*
@@ -22,7 +23,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_10();
+  exercise_17();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -621,15 +622,17 @@ async function exercise_10() {
   */
 }
 
-function exercise_11() {
+async function exercise_11() {
   /* 
    
-    Exercise 12: Using try-catch for Synchronous and Asynchronous Code
-Problem:
+    Exercise 11: Using try-catch for Synchronous and Asynchronous Code
+    
+    Problem:
 
-Write a function that synchronously throws an error if a provided number is negative. Also, write an async function that fetches data and throws an error if the response is not ok. Use try-catch to handle both cases.
-    
-    
+    Write a function that synchronously throws an error if a 
+    provided number is negative. 
+    Also, write an async function that fetches data and throws 
+    an error if the response is not ok. Use try-catch to handle both cases.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -667,23 +670,28 @@ Write a function that synchronously throws an error if a provided number is nega
   // Synchronous error: Number must be positive
   // Asynchronous error: request to https://invalid.url/ failed, reason: getaddrinfo ENOTFOUND invalid.url
 
-  /*
-Explanation:
-
-Errors in synchronous code are caught in the try-catch block.
-Errors in asynchronous code using async/await are also caught in try-catch.
-  */
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    Errors in synchronous code are caught in the try-catch block.
+    Errors in asynchronous code using async/await are also caught in try-catch.
+  */
 }
 
 function exercise_12() {
   /* 
    
-Exercise 13: Throwing Custom Errors
-Problem:
+    Exercise 12: Throwing Custom Errors
+    
+    Problem:
 
-Create a custom error class ValidationError. Modify the checkPositiveNumber function to throw a ValidationError when the number is negative. Handle the error appropriately.
-  
+    Create a custom error class ValidationError. 
+    Paste the 'checkPositiveNumber' function below and modify it to throw a 
+    ValidationError when the number is negative. 
+    Handle the error appropriately.
+      
   */
   // CODE IN THE OPEN LINES BELOW
 
@@ -714,28 +722,33 @@ Create a custom error class ValidationError. Modify the checkPositiveNumber func
   // Outputs:
   // Validation Error: Number must be positive
 
-  /*
-Explanation:
-
-Custom errors provide more context and can be handled differently.
-The instanceof operator checks the error type.
-*/
   // CODE IN THE OPEN LINES ABOVE
+  /*
+    Answer Explanation:
+
+    Custom errors provide more context and can be handled differently.
+    The instanceof operator checks the error type.
+*/
 }
 
 function exercise_13() {
   /* 
    
-    Exercise 14: Using the Callback Version of Node.js File System API
-Problem:
+    Exercise 13: Using the Callback Version of Node.js File System API
+    
+    Problem:
 
-Use the Node.js fs module to read the contents of a file example.txt using the callback-based fs.readFile method. Handle errors appropriately.
+    Use the Node.js 'fs' module to read the contents of a file 
+    'exercise_example.txt' using the callback-based fs.readFile method. 
+    Handle errors appropriately.
+
+    The fs module has already been imported for you at the top of this 
+    exercises.js file, so you don't need to do that.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const fs = require("fs");
 
-  fs.readFile("example.txt", "utf8", (err, data) => {
+  fs.readFile("./exercise_example.txt", "utf8", (err, data) => {
     if (err) {
       console.error("Error reading file:", err.message);
     } else {
@@ -743,31 +756,36 @@ Use the Node.js fs module to read the contents of a file example.txt using the c
     }
   });
 
-  // Outputs the contents of example.txt or an error message
-  /*
-Explanation:
-
-fs.readFile is asynchronous and uses a callback.
-The callback handles both error and success cases.
-*/
+  // Outputs the contents of exercise_example.txt or an error message
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    fs.readFile is asynchronous and uses a callback.
+    The callback handles both error and success cases.
+  */
 }
 
 function exercise_14() {
   /* 
    
-    Exercise 15: Using the Promise-Based Version of Node.js File System API
-Problem:
+    Exercise 14: Using the Promise-Based Version of Node.js File System API
 
-Use the fs.promises API to read the contents of example.txt using async/await. Handle any errors that may occur.
+    Problem:
+
+    Use the fs.promises API to read the contents of exercise_example.txt 
+    using async/await. Handle any errors that may occur.
+
+    NOTE - We have already imported the fs.promises library at the top
+    of this exercises.js file and assigned it to the Global variable 
+    `fsPromises`. Please use this variable in your code below.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const fs = require("fs").promises;
-
   (async () => {
     try {
-      const data = await fs.readFile("example.txt", "utf8");
+      const data = await fsPromises.readFile("exercise_example.txt", "utf8");
       console.log("File contents:", data);
     } catch (err) {
       console.error("Error reading file:", err.message);
@@ -776,10 +794,10 @@ Use the fs.promises API to read the contents of example.txt using async/await. H
 
   // Outputs the contents of example.txt or an error message
   /*
-Explanation:
+    Answer Explanation:
 
-fs.promises provides promise-based versions of fs methods.
-async/await is used for cleaner asynchronous code.
+    fs.promises provides promise-based versions of fs methods.
+    async/await is used for cleaner asynchronous code.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -787,19 +805,25 @@ async/await is used for cleaner asynchronous code.
 async function exercise_15() {
   /* 
    
-    Exercise 16: Reading and Writing Files Asynchronously with Error Handling
-Problem:
+    Exercise 15: Reading and Writing Files Asynchronously with Error Handling
+    
+    Problem:
 
-Write a function copyFile that reads source.txt and writes its content to destination.txt using promises and async/await. Include proper error handling.
+    Write a function 'copyFile' that reads 'source.txt' and writes its 
+    content to 'destination.txt' using promises and async/await. 
+    Include proper error handling.
+
+    NOTE - We have already imported the fs.promises library at the top
+    of this exercises.js file and assigned it to the Global variable 
+    `fsPromises`. Please use this variable in your code below.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const fs = require("fs").promises;
 
   async function copyFile(source, destination) {
     try {
-      const data = await fs.readFile(source, "utf8");
-      await fs.writeFile(destination, data, "utf8");
+      const data = await fsPromises.readFile(source, "utf8");
+      await fsPromises.writeFile(destination, data, "utf8");
       console.log(`Copied content from ${source} to ${destination}`);
     } catch (err) {
       console.error("Error:", err.message);
@@ -809,14 +833,14 @@ Write a function copyFile that reads source.txt and writes its content to destin
   copyFile("source.txt", "destination.txt");
 
   // Outputs success message or error
+  // CODE IN THE OPEN LINES ABOVE
   /*
-Explanation:
+    Answer Explanation:
 
-The function reads the source file and writes to the destination.
-Errors are caught in the try-catch block.
+    The function reads the source file and writes to the destination.
+    Errors are caught in the try-catch block.
 
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 function exercise_16() {
@@ -827,6 +851,9 @@ function exercise_16() {
     Fetch API: 
 		
 		Use the `fetch` API to make a GET request.
+
+    Make this request to the following url:
+    "https://jsonplaceholder.typicode.com/todos/1"
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -838,37 +865,42 @@ function exercise_16() {
 }
 
 function exercise_17() {
+  const errorProneFunction = () => {
+    if (Math.random() > 0.5) throw new Error("Random failure");
+    console.log("Success!");
+  };
   /* 
    
     Exercise 17
-
-    Using a Custom Error: 
-
-		Throw a custom error with a name and message.
-    
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  function fetchUserData(userId) {
-    if (!userId) throw new Error("User ID is required");
-    console.log("Fetching data for user:", userId);
-  }
-  try {
-    fetchUserData();
-  } catch (error) {
-    console.error(error.message);
-  }
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-function exercise_18() {
-  /* 
-   
-    Exercise 18
     
     Retry Logic: 
-		
-		Create a simple retry mechanism for a function.
+
+    Create a function named `retry` that takes a function to run and 
+    the number of times it should retry it if it fails.
+
+    Set a variable named `attempt` inside the retry function and initialize
+    it to 0. Then, create a function inside the `retry` function named
+    `execute`. 
+
+    Use a try-catch block inside of `execute` to try to execute the function
+    passed to `retry`. 
+
+    Inside of the catch block, check to see if the current attempt number is 
+    less than the 'retries' limit.
+
+    If it is, increment 'attempt' by 1, log a message to the console saying you
+    are retrying the function, and then run the `execute` function again.
+
+    If attempt is greater than the retry limit, log an error to the console
+    that says the function failed after the retry limit, and print the error 
+    message. 
+
+    Finally, we have defined an error prone function above 
+    named `errorProneFunction`. Pass this to your `retry` function to test that
+    it runs properly.
+
+    Run this exercise multiple times to see the success and failure conditions
+    your retry function should have.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -889,21 +921,19 @@ function exercise_18() {
     }
     execute();
   }
-  retry(() => {
-    if (Math.random() > 0.5) throw new Error("Random failure");
-    console.log("Success!");
-  }, 3);
+  retry(errorProneFunction, 3);
   // CODE IN THE OPEN LINES ABOVE
 }
 
-function exercise_19() {
+function exercise_18() {
   /* 
    
-    Exercise 19
+    Exercise 18
     
     Using `Promise.all`: 
 		
-		Make two promises run concurrently.
+		Make two promises run concurrently by using Promise.all.
+    Once they are both finished, log their results to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -922,10 +952,13 @@ function exercise_20() {
     
     Using `Promise.race`: 
 		
-		Log the result of the first promise to complete.
+		Using Promise.race, log the result of the first promise to out of an array
+    of them.
   
   */
   // CODE IN THE OPEN LINES BELOW
+  const promise1 = delay(1000).then(() => "First Promise");
+  const promise2 = delay(2000).then(() => "Second Promise");
   Promise.race([promise1, promise2]).then((result) =>
     console.log("First to finish:", result)
   );
