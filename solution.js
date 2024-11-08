@@ -1,5 +1,4 @@
 import { fileURLToPath } from "url";
-import { EventEmitter } from "events";
 import fs from "fs";
 const fsPromises = fs.promises;
 
@@ -23,7 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_20();
+  exercise_01();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -43,39 +42,7 @@ function exercise_01() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  // Synchronous function
-  function logNumbersSync() {
-    for (let i = 1; i <= 5; i++) {
-      console.log(i);
-    }
-  }
-
-  logNumbersSync();
-  // Outputs: 1 2 3 4 5 immediately
-
-  // Asynchronous function
-  function logNumbersAsync() {
-    for (let i = 1; i <= 5; i++) {
-      setTimeout(() => {
-        console.log(i);
-      }, i * 1000);
-    }
-  }
-
-  logNumbersAsync();
-  // Outputs: 1 2 3 4 5 with 1-second intervals
-
-  /*
-    Answer Explanation:
-
-    Synchronous operations execute code sequentially; 
-      Each operation must complete before the next one starts.
-
-    Asynchronous operations allow the program to continue executing 
-      without waiting for an operation to finish.
-      In the asynchronous function, setTimeout is used 
-      to introduce a delay, simulating asynchronous behavior.
-*/
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -94,32 +61,9 @@ function exercise_02() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  function fetchData(callback) {
-    console.log("Fetching data...");
-
-    setTimeout(() => {
-      const data = { id: 1, message: "Hello, world!" };
-      callback(data);
-    }, 2000);
-  }
-
-  fetchData((data) => {
-    console.log("Data received:", data);
-  });
-
-  // Outputs:
-  // Fetching data...
-  // (after 2 seconds)
-  // Data received: { id: 1, message: 'Hello, world!' }
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-
-  /*
-    Answer Explanation:
-
-    The fetchData function simulates an API call with a delay.
-    A callback function is passed to process the data once it's available.
-  */
 }
 
 function exercise_03() {
@@ -136,44 +80,10 @@ function exercise_03() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function readFile(filename, callback) {
-    setTimeout(() => {
-      if (filename === "data.txt") {
-        callback(null, "File content");
-      } else {
-        callback(new Error("File not found"));
-      }
-    }, 1000);
-  }
 
-  readFile("data.txt", (err, content) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log(content);
-    }
-  });
-
-  // Outputs after 1 second: File content
-
-  readFile("missing.txt", (err, content) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log(content);
-    }
-  });
-
-  // Outputs after 1 second: File not found
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-
-  /*
-    Answer Explanation:
-
-    The readFile function uses a callback to handle both success and error cases.
-    Error-first callbacks are a common pattern in Node.js and JavaScript.
-  */
 }
 
 function exercise_04() {
@@ -188,50 +98,10 @@ function exercise_04() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1(callback) {
-    setTimeout(() => {
-      console.log("Task 1 completed");
-      callback();
-    }, 1000);
-  }
 
-  function task2(callback) {
-    setTimeout(() => {
-      console.log("Task 2 completed");
-      callback();
-    }, 1000);
-  }
-
-  function task3(callback) {
-    setTimeout(() => {
-      console.log("Task 3 completed");
-      callback();
-    }, 1000);
-  }
-
-  // Callback hell
-  task1(() => {
-    task2(() => {
-      task3(() => {
-        console.log("All tasks completed");
-      });
-    });
-  });
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 completed
-  // (after 3 seconds) Task 3 completed
-  // All tasks completed
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    Nesting callbacks leads to code that's hard to read and 
-    maintain, known as "callback hell" or the "pyramid of doom".
-    Each task waits for the previous one to complete before starting.
-  */
 }
 
 function exercise_05() {
@@ -246,45 +116,10 @@ function exercise_05() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function readFilePromise(filename) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (filename === "data.txt") {
-          resolve("File content");
-        } else {
-          reject(new Error("File not found"));
-        }
-      }, 1000);
-    });
-  }
 
-  readFilePromise("data.txt")
-    .then((content) => {
-      console.log(content);
-    })
-    .catch((err) => {
-      console.error(err.message);
-    });
-
-  // Outputs after 1 second: File content
-
-  readFilePromise("missing.txt")
-    .then((content) => {
-      console.log(content);
-    })
-    .catch((err) => {
-      console.error(err.message);
-    });
-
-  // Outputs after 1 second: File not found
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    Promises provide a cleaner way to handle asynchronous operations compared to callbacks.
-    resolve and reject are used to handle success and error cases.
-  */
 }
 
 function exercise_06() {
@@ -300,53 +135,10 @@ function exercise_06() {
     
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 1 completed");
-        resolve();
-      }, 1000);
-    });
-  }
 
-  function task2() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 2 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  function task3() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 3 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  task1()
-    .then(task2)
-    .then(task3)
-    .then(() => {
-      console.log("All tasks completed");
-    });
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 completed
-  // (after 3 seconds) Task 3 completed
-  // All tasks completed
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    Chaining .then() allows for sequential execution of asynchronous tasks.
-    Each function returns a Promise, making them chainable.
-  */
 }
 
 async function exercise_07() {
@@ -361,55 +153,10 @@ async function exercise_07() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 1 completed");
-        resolve();
-      }, 1000);
-    });
-  }
 
-  function task2() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log("Task 2 failed");
-        reject(new Error("Task 2 failed"));
-      }, 1000);
-    });
-  }
-
-  function task3() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 3 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  task1()
-    .then(task2)
-    .then(task3)
-    .then(() => {
-      console.log("All tasks completed");
-    })
-    .catch((err) => {
-      console.error("Error:", err.message);
-    });
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 failed
-  // Error: Task 2 failed
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    The reject function is used to indicate an error.
-    The .catch() method handles errors in the promise chain.
-  */
 }
 
 async function exercise_08() {
@@ -425,59 +172,10 @@ async function exercise_08() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 1 completed");
-        resolve();
-      }, 1000);
-    });
-  }
 
-  function task2() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log("Task 2 failed");
-        reject(new Error("Task 2 failed"));
-      }, 1000);
-    });
-  }
-
-  function task3() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 3 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  task1()
-    .then(task2)
-    .then(task3)
-    .then(() => {
-      console.log("All tasks completed");
-    })
-    .catch((err) => {
-      console.error("Error:", err.message);
-    })
-    .finally(() => {
-      console.log("Process finished");
-    });
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 failed
-  // Error: Task 2 failed
-  // Process finished
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    .finally() is executed after the promise is settled, regardless of the outcome.
-    Useful for cleanup operations or final logging.
-  */
 }
 
 async function exercise_09() {
@@ -493,60 +191,10 @@ async function exercise_09() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 1 completed");
-        resolve();
-      }, 1000);
-    });
-  }
 
-  function task2() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 2 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  function task3() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 3 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  async function runTasks() {
-    try {
-      await task1();
-      await task2();
-      await task3();
-      console.log("All tasks completed");
-    } catch (err) {
-      console.error("Error:", err.message);
-    }
-  }
-
-  runTasks();
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 completed
-  // (after 3 seconds) Task 3 completed
-  // All tasks completed
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    The async function allows the use of await to pause execution 
-      until the promise resolves.
-    Error handling is done using try-catch.
-  */
 }
 
 async function exercise_10() {
@@ -565,61 +213,10 @@ async function exercise_10() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function task1() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 1 completed");
-        resolve();
-      }, 1000);
-    });
-  }
 
-  function task2() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log("Task 2 failed");
-        reject(new Error("Task 2 failed"));
-      }, 1000);
-    });
-  }
-
-  function task3() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("Task 3 completed");
-        resolve();
-      }, 1000);
-    });
-  }
-
-  async function runTasks() {
-    try {
-      await task1();
-      await task2(); // This will throw an error
-      await task3();
-      console.log("All tasks completed");
-    } catch (err) {
-      console.error("Error:", err.message);
-    } finally {
-      console.log("Process finished");
-    }
-  }
-
-  runTasks();
-
-  // Outputs:
-  // (after 1 second) Task 1 completed
-  // (after 2 seconds) Task 2 failed
-  // Error: Task 2 failed
-  // Process finished
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    Errors thrown by await are caught in the catch block.
-    `finally` can be used similarly to .finally() in promises.
-  */
 }
 
 async function exercise_11() {
@@ -636,48 +233,10 @@ async function exercise_11() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function checkPositiveNumber(number) {
-    if (number < 0) {
-      throw new Error("Number must be positive");
-    }
-    return number;
-  }
 
-  async function fetchData(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  }
-
-  try {
-    checkPositiveNumber(-5);
-  } catch (err) {
-    console.error("Synchronous error:", err.message);
-  }
-
-  (async () => {
-    try {
-      const data = await fetchData("https://invalid.url");
-      console.log(data);
-    } catch (err) {
-      console.error("Asynchronous error:", err.message);
-    }
-  })();
-
-  // Outputs:
-  // Synchronous error: Number must be positive
-  // Asynchronous error: request to https://invalid.url/ failed, reason: getaddrinfo ENOTFOUND invalid.url
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-
-  /*
-    Answer Explanation:
-
-    Errors in synchronous code are caught in the try-catch block.
-    Errors in asynchronous code using async/await are also caught in try-catch.
-  */
 }
 
 function exercise_12() {
@@ -695,40 +254,9 @@ function exercise_12() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  class ValidationError extends Error {
-    constructor(message) {
-      super(message);
-      this.name = "ValidationError";
-    }
-  }
-
-  function checkPositiveNumber(number) {
-    if (number < 0) {
-      throw new ValidationError("Number must be positive");
-    }
-    return number;
-  }
-
-  try {
-    checkPositiveNumber(-5);
-  } catch (err) {
-    if (err instanceof ValidationError) {
-      console.error("Validation Error:", err.message);
-    } else {
-      console.error("Error:", err.message);
-    }
-  }
-
-  // Outputs:
-  // Validation Error: Number must be positive
+  let placeholder = "Delete me and code here";
 
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    Custom errors provide more context and can be handled differently.
-    The instanceof operator checks the error type.
-*/
 }
 
 function exercise_13() {
@@ -748,23 +276,9 @@ function exercise_13() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  fs.readFile("./exercise_example.txt", "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading file:", err.message);
-    } else {
-      console.log("File contents:", data);
-    }
-  });
+  let placeholder = "Delete me and code here";
 
-  // Outputs the contents of exercise_example.txt or an error message
   // CODE IN THE OPEN LINES ABOVE
-
-  /*
-    Answer Explanation:
-
-    fs.readFile is asynchronous and uses a callback.
-    The callback handles both error and success cases.
-  */
 }
 
 function exercise_14() {
@@ -783,22 +297,9 @@ function exercise_14() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  (async () => {
-    try {
-      const data = await fsPromises.readFile("exercise_example.txt", "utf8");
-      console.log("File contents:", data);
-    } catch (err) {
-      console.error("Error reading file:", err.message);
-    }
-  })();
 
-  // Outputs the contents of example.txt or an error message
-  /*
-    Answer Explanation:
+  let placeholder = "Delete me and code here";
 
-    fs.promises provides promise-based versions of fs methods.
-    async/await is used for cleaner asynchronous code.
-  */
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -820,27 +321,9 @@ async function exercise_15() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  async function copyFile(source, destination) {
-    try {
-      const data = await fsPromises.readFile(source, "utf8");
-      await fsPromises.writeFile(destination, data, "utf8");
-      console.log(`Copied content from ${source} to ${destination}`);
-    } catch (err) {
-      console.error("Error:", err.message);
-    }
-  }
+  let placeholder = "Delete me and code here";
 
-  copyFile("source.txt", "destination.txt");
-
-  // Outputs success message or error
   // CODE IN THE OPEN LINES ABOVE
-  /*
-    Answer Explanation:
-
-    The function reads the source file and writes to the destination.
-    Errors are caught in the try-catch block.
-
-  */
 }
 
 function exercise_16() {
@@ -857,10 +340,9 @@ function exercise_16() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
-    .then((response) => response.json())
-    .then((data) => console.log("Fetched data:", data))
-    .catch((error) => console.error("Error:", error.message));
+
+  let placeholder = "Delete me and code here";
+
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -904,24 +386,9 @@ function exercise_17() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function retry(fn, retries) {
-    let attempt = 0;
-    function execute() {
-      try {
-        fn();
-      } catch (error) {
-        if (attempt < retries) {
-          attempt++;
-          console.log(`Retrying... (${attempt})`);
-          execute();
-        } else {
-          console.error("Failed after retries:", error.message);
-        }
-      }
-    }
-    execute();
-  }
-  retry(errorProneFunction, 3);
+
+  let placeholder = "Delete me and code here";
+
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -948,11 +415,8 @@ function exercise_18() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const promise1 = sleep(1000).then(() => "First Promise");
-  const promise2 = sleep(1000).then(() => "Second Promise");
-  Promise.all([promise1, promise2]).then((results) =>
-    console.log("Results:", results)
-  );
+  let placeholder = "Delete me and code here";
+
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -979,11 +443,9 @@ function exercise_19() {
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const promise1 = sleep(2000).then(() => "First Promise");
-  const promise2 = sleep(1000).then(() => "Second Promise");
-  Promise.race([promise1, promise2]).then((result) =>
-    console.log("First to finish:", result)
-  );
+
+  let placeholder = "Delete me and code here";
+
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -1009,8 +471,7 @@ function exercise_20() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  Promise.allSettled(promiseList).then((results) =>
-    console.log("All Settled Results:", results)
-  );
+  let placeholder = "Delete me and code here";
+
   // CODE IN THE OPEN LINES ABOVE
 }
