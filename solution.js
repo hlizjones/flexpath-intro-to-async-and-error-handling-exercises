@@ -23,7 +23,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_17();
+  exercise_20();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -926,6 +926,11 @@ function exercise_17() {
 }
 
 function exercise_18() {
+  function sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
   /* 
    
     Exercise 18
@@ -933,145 +938,79 @@ function exercise_18() {
     Using `Promise.all`: 
 		
 		Make two promises run concurrently by using Promise.all.
-    Once they are both finished, log their results to the console
+    Once they are both finished, log their results to the console.
+
+    We have created a Promise based `sleep` function above that takes an integer
+    for the number of milliseconds to wait before resolving the promise.
+
+    You can use it below. 1000 milliseconds equals 1 second.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const promise1 = delay(1000).then(() => "First Promise");
-  const promise2 = delay(2000).then(() => "Second Promise");
+
+  const promise1 = sleep(1000).then(() => "First Promise");
+  const promise2 = sleep(1000).then(() => "Second Promise");
   Promise.all([promise1, promise2]).then((results) =>
     console.log("Results:", results)
   );
   // CODE IN THE OPEN LINES ABOVE
 }
 
-function exercise_20() {
+function exercise_19() {
+  function sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
   /* 
    
-    Exercise 20
+    Exercise 19
     
     Using `Promise.race`: 
 		
 		Using Promise.race, log the result of the first promise to out of an array
     of them.
+
+    We have created a Promise based `sleep` function above that takes an integer
+    for the number of milliseconds to wait before resolving the promise.
+
+    You can use it below. Use 1000 milliseconds for one of the `sleep` calls
+    and 2000 milliseconds for the other.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const promise1 = delay(1000).then(() => "First Promise");
-  const promise2 = delay(2000).then(() => "Second Promise");
+  const promise1 = sleep(2000).then(() => "First Promise");
+  const promise2 = sleep(1000).then(() => "Second Promise");
   Promise.race([promise1, promise2]).then((result) =>
     console.log("First to finish:", result)
   );
   // CODE IN THE OPEN LINES ABOVE
 }
 
-function exercise_21() {
+function exercise_20() {
+  function sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+  const promise1 = sleep(2000).then(() => "First Promise");
+  const promise2 = sleep(1000).then(() => "Second Promise");
+  const promiseList = [promise1, promise2, Promise.reject("Error")];
   /* 
    
-    Exercise 21
+    Exercise 20
     
-    Using `Promise.allSettled`: 
+    Using `Promise.allSettled`
 		
-		Get the status of multiple promises.
+		Use Promise.allSettled to check when an array of promises settle.
+
+    We have defined a `promiseList` for you to use above
   
   */
   // CODE IN THE OPEN LINES BELOW
-  Promise.allSettled([promise1, promise2, Promise.reject("Error")]).then(
-    (results) => console.log("All Settled Results:", results)
+
+  Promise.allSettled(promiseList).then((results) =>
+    console.log("All Settled Results:", results)
   );
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-async function exercise_22() {
-  /* 
-   
-    Exercise 22
-    
-    Handling API Response: 
-		
-		Check if a fetch response is okay
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  async function fetchDataFromAPI() {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      if (!response.ok) throw new Error("Network response was not ok");
-      const data = await response.json();
-      console.log("API Data:", data);
-    } catch (error) {
-      console.error("Fetch error:", error.message);
-    }
-  }
-  fetchDataFromAPI();
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-async function exercise_23() {
-  /* 
-   
-    Exercise 23
-    
-    Creating an API Request Wrapper: 
-		
-		Wrap fetch in a reusable function.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  async function apiRequest(url) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("Failed to fetch data");
-      return await response.json();
-    } catch (error) {
-      console.error("API Request Error:", error.message);
-    }
-  }
-  apiRequest("https://jsonplaceholder.typicode.com/users").then((data) =>
-    console.log("User Data:", data)
-  );
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-function exercise_24() {
-  /* 
-   
-    Exercise 24
-    
-    Event Handling Example: 
-		
-		Use Node.js's EventEmitter to handle a custom event.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  const myEmitter = new EventEmitter();
-  myEmitter.on("greet", (name) => console.log(`Hello, ${name}!`));
-  setTimeout(() => myEmitter.emit("greet", "Alice"), 2000);
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-function exercise_25() {
-  /* 
-   
-    Exercise 25
-    
-    Throw and Catch Custom Error: 
-		
-		Create and catch a custom error.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  function checkFile(fileName) {
-    if (!fileName.endsWith(".json"))
-      throw new Error("Only JSON files are allowed");
-    console.log("File is valid");
-  }
-  try {
-    checkFile("data.txt");
-  } catch (error) {
-    console.error("File Error:", error.message);
-  }
   // CODE IN THE OPEN LINES ABOVE
 }
