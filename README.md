@@ -3,8 +3,8 @@
 
 ## Exercise overview
 
-The intention of this exercise is to give you more experience working with
-collections and loops in JavaScript.
+The intention of this exercise is to introduce you to asynchronous operations
+in JavaScript.
 
 
 ## Getting Started
