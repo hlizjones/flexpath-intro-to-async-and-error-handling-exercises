@@ -19,7 +19,7 @@ in JavaScript.
    in code comments. For each exercise, please code ONLY in the space 
    between the comments `// CODE IN THE OPEN LINES BELOW` and `// CODE IN THE OPEN LINES ABOVE` 
 4. To run your code for different exercises, you will update the exercise mentioned
-   on line 20 of the file. 
+   on line 25 of the file. 
    ![To run a different exercise, change this line](gettingStartedFiles/whereToEditToRunExercise.png)
 5. After changing that line, make sure to SAVE the file before running it.
 6. To run your code in exercises.js, you will update line 25 to run the exercise code
