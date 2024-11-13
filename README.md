@@ -35,6 +35,9 @@ in JavaScript.
 We have included the screen recording from exercise 2 showing how to run these
 types of exercise files. 
 
+VIDEO DISCLAIMER - You will need to clone the repo to your local device before
+you can watch the .mp4 file since GitHub does not support watching it from here.
+
 Exercise solutions are in the `/solution` folder
 
 &nbsp;
