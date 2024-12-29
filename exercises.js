@@ -22,7 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  exercise_02();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -42,7 +42,64 @@ function exercise_01() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  // Sync function
+  function count(num) { 
+    while (num <= 5) {
+      console.log(num);
+      num++;
+    }
+  }
+
+   count(1)
+
+  // Sync function simulating async behavior
+  function countNum(num) {
+    if (num === 6) {
+      return;
+    }
+    setTimeout(() => {
+      console.log(num);
+      num++;
+      return num;
+    }, num * 1000);
+    countNum(num + 1);
+  }
+
+  countNum(1)
+
+  // Actual async function
+  async function countNumPromise(num) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log(num);
+        num++;
+        resolve(num);
+      }, 1000);
+    });
+  }
+
+  countNumPromise(1)
+    .then(num => countNumPromise(num))
+    .then(num => countNumPromise(num))
+    .then(num => countNumPromise(num))
+    .then(num => countNumPromise(num))
+
+  // More automated async function
+  async function increaseNumPromise(num) {
+    if (num > 5) {
+      return;
+    } let p = new Promise((resolve) => {
+      setTimeout(() => {
+        console.log(num);
+        num++;
+        resolve(num);
+      }, 1000);
+    });
+    await p;
+    await increaseNumPromise(num);
+  }
+
+  increaseNumPromise(1)
 
   // CODE IN THE OPEN LINES ABOVE
 }
