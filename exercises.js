@@ -22,7 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_02();
+  exercise_16();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -118,7 +118,30 @@ function exercise_02() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  try{
+
+  function processData () {
+    let data = {Name: "Hannah", Age: 26}
+    console.log(data)
+  }
+
+  function fetchData (callback) {
+    console.log("Fetching data...")
+  setTimeout(() => {
+    callback()
+    console.log("Data fetched")
+  }, 2000);
+
+  }
+
+  fetchData(processData)
+
+  } catch(err) {
+    console.log(`Could not fetch data`);
+    throw err;
+  }
+  
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -138,7 +161,20 @@ function exercise_03() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function readFile (name, callback) {
+    setTimeout(() => {
+      if (name === "data.txt") {
+        callback(name)
+    } else {
+      console.log("Error reading file")
+    }
+  }, 1000);
+  }
+
+  readFile("data.txt", (name) => console.log(`File content: ${name}`))
+
+  readFile("Nonexistant file", (name) => console.log(`File content: ${name}`))
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -156,8 +192,49 @@ function exercise_04() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello(callback) {
+    setTimeout(() => {
+      console.log("Hello!");
+      callback();
+    }, 1000);
+  }
 
+  function askQuestion(callback) {
+    setTimeout(() => {
+      console.log("How are you?");
+      callback();
+    }, 1000);
+  }
+
+  function sayGoodbye(callback) {
+    setTimeout(() => {
+      console.log("See ya!");
+      callback();
+    }, 1000);
+  }
+
+  sayHello(() => askQuestion(() => sayGoodbye(() => setTimeout(() => { console.log("Tasks completed") }, 1000))))
+
+  function hello() {
+    setTimeout(() => {
+      console.log("Hiya!")
+
+      setTimeout(() => {
+        console.log("How ya doin'?");
+
+        setTimeout(() => {
+          console.log("Talk to ya later!")
+
+          setTimeout(() => {
+            console.log("Tasks completed")
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }
+
+  hello()
+  
   // CODE IN THE OPEN LINES ABOVE
 }
 
@@ -174,7 +251,20 @@ function exercise_05() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function isValidFile(data) {
+    return new Promise(function (resolve, reject) {
+      setTimeout(() => {
+        if (data === "data.txt") {
+        resolve(data)
+      } else {
+        reject("Error reading file")
+      }
+    }, 1000);
+    })
+  }
+
+  isValidFile("data.txt").then((data) => console.log(`File content: ${data}`)).catch(err => console.log(err))
+  isValidFile("Nonexistent file").then((data) => console.log(`File content: ${data}`)).catch(err => console.log(err))
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -193,7 +283,33 @@ function exercise_06() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(console.log("Hello!"))
+      }, 1000);
+    });
+  }
+
+  function askQuestion () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(console.log("How are you?"))
+      }, 1000);
+    });
+  }
+
+  function sayGoodbye () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(console.log("Bye!"))
+      }, 1000);
+    });
+  }
+
+  sayHello()
+  .then(askQuestion)
+  .then(sayGoodbye)
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -211,7 +327,37 @@ async function exercise_07() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Hello!")
+        resolve()
+      }, 1000);
+    });
+  }
+
+  function askQuestion () {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error("Task 2 Failed"));
+      }, 1000);
+    });
+  }
+
+  function sayGoodbye () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Bye!")
+        resolve()
+      }, 1000);
+    });
+  }
+
+  sayHello()
+  .then(askQuestion)
+  .then(sayGoodbye)
+  .catch(err => console.log(err.message))
+  
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -230,7 +376,37 @@ async function exercise_08() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Hello!")
+        resolve()
+      }, 1000);
+    });
+  }
+
+  function askQuestion () {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error("Task 2 Failed"));
+      }, 1000);
+    });
+  }
+
+  function sayGoodbye () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Bye!")
+        resolve()
+      }, 1000);
+    });
+  }
+
+  sayHello()
+  .then(askQuestion)
+  .then(sayGoodbye)
+  .catch(err => console.log(err.message))
+  .finally(console.log("Progress finished"))
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -249,7 +425,44 @@ async function exercise_09() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Hello!");
+        resolve();
+      }, 1000);
+    });
+  }
+
+ function askQuestion () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("How are you?");
+        resolve();
+      }, 1000);
+    });
+  }
+
+ function sayGoodbye () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Bye!");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  async function runTasks() {
+  try {
+  await sayHello();
+  await askQuestion();
+  await sayGoodbye();
+  } catch (err) {
+  console.log(err.message);
+  }
+}
+
+runTasks();
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -271,7 +484,45 @@ async function exercise_10() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function sayHello () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Hello!");
+        resolve();
+      }, 1000);
+    });
+  }
+
+ function askQuestion () {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error("Task 2 Failed"));
+      }, 1000);
+    });
+  }
+
+ function sayGoodbye () {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Bye!");
+        resolve();
+      }, 1000);
+    });
+  }
+
+  async function runTasks() {
+  try {
+  await sayHello();
+  await askQuestion();
+  await sayGoodbye();
+  } catch (err) {
+  console.log(err.message);
+  } finally {
+    console.log("Progress finished");
+  }
+}
+
+runTasks();
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -291,7 +542,40 @@ async function exercise_11() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function isNumValid (num) {
+    if (num < 0) {
+      throw(new Error("Number is not valid"))
+    } else {
+      console.log("Number is valid")
+    }
+   }
+  
+   try{
+   isNumValid(-2)
+   } catch (err) {
+    console.log(err.message)
+   }
+   
+   async function fetchData (url) {
+    let response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Request not successful");
+      } else {
+        let data = await response.json();
+        console.log(data);
+        return data;
+      }
+  }
+  
+let handleErrors = async () => {
+  try {
+  await fetchData("http://invalid.url")
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
+handleErrors()
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -311,7 +595,28 @@ function exercise_12() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  class ValidationError extends Error {
+    constructor(msg){  
+      super(msg)
+
+      this.name = 'ValidationError';
+      this.message = msg;
+    }
+  }
+
+  function isNumValid (num) {
+    if (num < 0) {
+      throw(new ValidationError("Number is invalid"))
+    } else {
+      console.log("Number is valid")
+    }
+   }
+  
+   try {
+   isNumValid(-2)
+   } catch (err) {
+    console.error(err.message)
+   }
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -333,7 +638,13 @@ function exercise_13() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  fs.readFile('./exercise_example.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err.message)
+    } else {
+      console.log(data)
+    }
+  });
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -355,7 +666,16 @@ function exercise_14() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  async function loadData() {
+  try{
+  let data = await fsPromises.readFile('./exercise_example.txt', 'utf8')
+  console.log(data)
+  } catch(err) {
+  console.error(err.message)
+  }
+}
+
+loadData()
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -378,7 +698,17 @@ async function exercise_15() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  async function copyFile () {
+    try{
+    let data = await fsPromises.readFile('./source.txt', 'utf8')
+    await fsPromises.writeFile('./destination.txt', data);
+    console.log("File written successfully")
+  } catch (err) {
+    console.log(err.message)
+  }
+}
+
+copyFile()
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -398,7 +728,19 @@ function exercise_16() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  async function fetchData (url) {
+    try{
+    let data = await fetch(url);
+    let obj = await data.json()
+    console.log(obj)
+  } catch(err) {
+    console.log(err.message)
+  }
+}
+  
+  fetchData ('https://jsonplaceholder.typicode.com/todos/1')
+
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
