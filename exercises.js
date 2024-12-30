@@ -22,7 +22,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_16();
+  exercise_20();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -786,7 +786,27 @@ function exercise_17() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  function retry(func, num) {
+    let attempt = 0
+    function execute() {
+      try {
+        func();
+      } catch (error) {
+        if (attempt < num) {
+          attempt++;
+          console.log("Retrying function...");
+          execute();
+        } else {
+          console.log("Function failed after retry limit")
+          console.error(error.message)
+        }
+      }
+    }
+    execute()
+  }
+
+  retry (errorProneFunction, 8);
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -814,7 +834,37 @@ function exercise_18() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  // Before understanding how to implement 'sleep' function
+
+  async function goodMorning (msg) {
+    return new Promise((resolve) => {
+     setTimeout (() => { console.log(msg)
+      resolve(); 
+    }, 3000);
+    })
+  }
+
+  async function goodNight (msg) {
+    return new Promise((resolve) => { 
+      setTimeout (() => { console.log(msg)
+      resolve();
+      }, 5000)
+    })
+  }
+
+  Promise.all([goodMorning("Good morning sunshine!"),goodNight("Sleep tight!")])
+  .then(() => console.log("Message complete"));
+
+  // After looking at the solution to understand how to implement 'sleep' function
+  
+  Promise.all([sleep(1000), sleep(5000)])
+  .then(console.log("Both promises have been logged!"));
+
+// After looking at the solution again to better understand the results of the functions
+
+  let p1 = sleep(5000).then(() => "First promise resolved!");
+  let p2 = sleep(1000).then(()=> "Second promise resolved!");
+  Promise.all([p1,p2]).then((results) => console.log(results));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -843,7 +893,11 @@ function exercise_19() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  let p1 = sleep(5000).then(() => "First promise")
+  let p2 = sleep(2000).then(() => "Second promise")
+  let p3 = sleep(4000).then(() => "Third promise")
+
+Promise.race([p1,p2,p3]).then((result)=> console.log(`Ready...set...go! ${result}`))
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -870,7 +924,7 @@ function exercise_20() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  let placeholder = "Delete me and code here";
+  Promise.allSettled(promiseList).then((results)=>console.log(results))
 
   // CODE IN THE OPEN LINES ABOVE
 }
